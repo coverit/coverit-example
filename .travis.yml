@@ -1,7 +1,7 @@
 language: objective-c
 script:
   - xctool test -scheme CoveritExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-after_success:
+after_script:
   - npm install -g coveralls
   - sudo ln -s `pwd` /coverit-ios-example
   - cat coverage.info | coveralls
