@@ -1,9 +1,11 @@
+# See http://docs.travis-ci.com/user/build-configuration/
 language: objective-c
 script:
   - xctool test -scheme CoveritExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-after_script:
   - npm install -g coveralls
-  - sudo ln -s `pwd` /coverit-ios-example
+  - brew install https://raw.githubusercontent.com/coverit/homebrew-coverit/master/coverit.rb
+  - coverit report -d ~/Library/Developer/Xcode/DerivedData
+  - cat coverage.info
   - cat coverage.info | coveralls
 notifications:
   slack:
