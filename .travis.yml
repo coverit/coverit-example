@@ -4,7 +4,7 @@ script:
   - xctool test -scheme CoveritExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - npm install -g coveralls
   - brew install https://raw.githubusercontent.com/coverit/homebrew-coverit/master/coverit.rb
-  - coverit report -d ~/Library/Developer/Xcode/DerivedData
+  - coverit report
   - cat coverage.info
   - cat coverage.info | coveralls
 notifications:
